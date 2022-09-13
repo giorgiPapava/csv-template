@@ -1,18 +1,20 @@
 import { MdEmail, MdPhone } from 'react-icons/md';
-import { ImLinkedin, ImLocation } from 'react-icons/im';
+import { ImGithub, ImLinkedin, ImLocation } from 'react-icons/im';
 import classNames from 'classnames';
+import profilePicture from '/profile_picture.jpg'
 
-const image =
-  'https://media-exp1.licdn.com/dms/image/C4D03AQFMU9u_gVgAZQ/profile-displayphoto-shrink_800_800/0/1515062964082?e=1665619200&v=beta&t=p51YRZp90Pe3l_rNvpl3UEhdj2xERCd2Tfu7CQNJW6g';
-const email = 'aleksandre.kapanadze.89@gmail.com';
-const phoneNumber = '558105740';
-const linkedin = 'https://linkedin.com/in/aleksandre-kapanadze-a75361101';
-const description = 'I am a .NET developer with 3.5+ years of experience.';
-const address = 'Sof.Chiaureli st. 14, app.47, Tbilisi, 0179, Georgia';
+const fullName = 'Giorgi Papava';
+const email = 'giorgi.papava.00@gmail.com';
+const phoneNumber = '599977880';
+const linkedin = 'https://www.linkedin.com/in/giorgi-papava-7084211b6';
+const github = 'https://github.com/giorgiPapava';
+const description = 'I\'m react developer with 3+ years of experience.';
+const address = 'Tbilisi, Georgia';
 const nationality = 'Georgian';
-const birthDate = '12.07.1989';
+const birthDate = '02.08.2000';
+const position = 'React Front End Developer'
 
-const CONTACT = [
+const contacts = [
   {
     icon: <MdEmail className='text-yellow-600' />,
     desc: email,
@@ -20,6 +22,10 @@ const CONTACT = [
   {
     icon: <MdPhone className='text-yellow-600' />,
     desc: phoneNumber,
+  },
+  {
+    icon: <ImGithub className='text-yellow-600' />,
+    desc: github,
   },
   {
     icon: <ImLinkedin className='text-yellow-600' />,
@@ -36,78 +42,74 @@ const LANGUAGES = [
     value: 5,
   },
   {
-    title: 'Russian',
-    value: 4,
-  },
-  {
     title: 'English',
     value: 3,
   },
 ];
 
-const SKILLS = [
-  'C#',
-  'XML',
-  'JSON',
-  '.NET Framework',
-  '.NET Core',
-  'ASP.NET Core',
-  'ASP.NET Core WebAPI',
-  'WinForms',
-  'WPF',
-  'WCF',
-  'ADO.NET',
-  'MS SQL Server',
-  'PostgreSQL',
-  'Elasticsearch',
-  'Redis',
-  'Git',
-  'RabbitMQ',
-  'DomainDriven Design',
-  'Microservices',
+const skills = [
+  "JavaScript/TypeScript",
+  "React/React Native",
+   "Node.js",
+  "Next.js",
+   "Redux/ReduxToolkit/Redux Saga",
+   "Zustand",
+  "Rest API",
+   "React Query",
+   "GraphQL",
+  "Apollo Client",
+   "MUI",
+   "StyledComponents/Emotion",
+   "TailwindCSS",
+   "Vite",
+   "Webpack/Babel",
+   "Git",
+  "Prettier/ESLint/Husky",
+   "Strapi",
+  "Docker",
+   "Azure",
+    "and more..."
 ];
-const EDUCATION = [
+const education = [
   {
-    title: 'Computer science undergraduate, Tbilisi State University',
-    date: 'Sep 2011 - Jul 2015',
+    title: 'Computer science bachelor, Business and Technology University',
+    date: 'Sep 2018 - Jul 2022',
+  }
+];
+const experience = [
+  {
+    title: 'Front End Developer, PASHA Bank in Georgia',
+    date: 'Aug 2021 - Present',
+    desc: 'Working on rebank.ge, ibank.rebank.ge and more using React, Next.js,react-query, MUI5, GraphQL, Apollo, TypeScript, Docker, Azure, andmore.',
   },
   {
-    title: 'Econimics and business bachelor, Tbilisi State University',
-    date: 'Sep 2006 - Jul 2011',
-  },
-];
-const EXPERIENCE = [
-  {
-    title: '.Net Developer, AFFIX Network, Tbilisi',
-    date: 'Oct 2020 - Present',
-    desc: 'Working on affix.net gaming platform using ASP.NET Core WebAPI, PostgreSQL, Domain-Driven Design, Microservices, Elasticsearch, Redis, RabbitMQ, and Hangfire.',
+    title: 'React Front End Developer, Upwork',
+    date: 'Apr 2021 - Present',
+    desc: 'Working with european clients and creating web applications.',
   },
   {
-    title: 'Product Owner, Betsolutions LTD, Tbilisi',
-    date: 'Oct 2019 - May 2020',
-    desc: 'Working on an online poker application as a product owner.',
+    title: 'Working with european clients and creating web applications.',
+    date: 'Nov 2019 - Jul 2021',
+    desc: 'Working on affix.net gaming platform using React, Gatsby, Redux,Material UI, Flow and more.',
   },
 ];
-const REFERENCES = [
-  'Alexander Muller, AFFIX Network, +995591777979',
-  'Davit Bagaturia, TBC Bank, +995 595367117',
-];
+const REFERENCES = [] as [];
 
 const Content = () => {
   return (
     <div className='pb-4'>
-      <div className='text-yellow-600 h-56 bg-cyan-900 w-full flex justify-center items-center gap-2 flex-col'>
+      <div className='text-yellow-600 h-56 bg-green-900 w-full flex justify-center items-center gap-2 flex-col'>
         <h2 className=' font-bold text-2xl letter tracking-wider'>
-          ALEKSANDRE KAPANDZE
+          {fullName}
         </h2>
-        <p>.NET Developer</p>
+        <p>{position}</p>
       </div>
       <div className='flex mt-12 items-stretch px-16'>
         <div className='flex-1'>
-          <img className='w-56 h-56 rounded-full' src={image} />
+          <img className='w-56 h-56 rounded-full object-cover' src={profilePicture} />
           <div className='flex flex-col gap-1'>
             <p className='text-yellow-600 mt-8 text-xl font-medium'>CONTACT</p>
-            {CONTACT.map((item) => (
+            {contacts.map((item) => (
               <div className='flex gap-4 items-center mt-2'>
                 {item.icon}
                 <p className='text-sm'>{item.desc}</p>
@@ -122,7 +124,7 @@ const Content = () => {
           <p className='text-yellow-600 mt-8 mb-2 text-xl font-medium'>
             SKILLS
           </p>
-          <p className='text-sm font-light'>{SKILLS.join(', ')}</p>
+          <p className='text-sm font-light'>{skills.join(', ')}</p>
         </div>
         <div className='w-px bg-gray-200 mx-16' />
         <div className='flex-[3]'>
@@ -130,7 +132,7 @@ const Content = () => {
           <p className='text-sm mt-4'>{description}</p>
 
           <p className='text-yellow-600 mt-12 text-xl font-medium'>EDUCATION</p>
-          {EDUCATION.map((item) => (
+          {education.map((item) => (
             <>
               <p className='text-black font-bold text-sm mt-4'>{item.title}</p>
               <p className='text-gray-400 text-sm mt-2'>{item.date}</p>
@@ -140,7 +142,7 @@ const Content = () => {
           <p className='text-yellow-600 mt-12 text-xl font-medium'>
             Experience
           </p>
-          {EXPERIENCE.map((item) => (
+          {experience.map((item) => (
             <>
               <p className='text-black font-bold text-sm mt-4'>{item.title}</p>
               <p className='text-gray-400 text-sm mt-2'>{item.date}</p>
@@ -148,12 +150,16 @@ const Content = () => {
             </>
           ))}
 
-          <p className='text-yellow-600 mt-12 text-xl font-medium'>
+          {REFERENCES.length > 0 && (
+            <>
+                  <p className='text-yellow-600 mt-12 text-xl font-medium'>
             REFERENCES
           </p>
           {REFERENCES.map((item) => (
             <p className='text-gray-700 text-sm mt-2'>{item}</p>
-          ))}
+          ))}</>
+          )}
+    
         </div>
       </div>
 
